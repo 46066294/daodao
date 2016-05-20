@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dades" type="dadesType"/>
+  <xs:complexType name="facturaType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="dni_client"/>
+      <xs:element type="xs:string" name="id_producte"/>
+      <xs:element type="xs:string" name="preu_unitat"/>
+      <xs:element type="xs:string" name="preu_total"/>
+      <xs:element type="xs:string" name="iva"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="empleatsType">
+    <xs:sequence>
+      <xs:element type="empleatType" name="empleat" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clientType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="dni"/>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:string" name="cognom"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clientsType">
+    <xs:sequence>
+      <xs:element type="clientType" name="client" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="catalegType">
+    <xs:sequence>
+      <xs:element type="producteType" name="producte" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="empleatType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:string" name="cognom"/>
+      <xs:element type="xs:string" name="sou"/>
+      <xs:element type="xs:string" name="anys_treballats"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dadesType">
+    <xs:sequence>
+      <xs:element type="clientsType" name="clients"/>
+      <xs:element type="empleatsType" name="empleats"/>
+      <xs:element type="facturesType" name="factures"/>
+      <xs:element type="catalegType" name="cataleg"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="facturesType">
+    <xs:sequence>
+      <xs:element type="facturaType" name="factura" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="producteType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:string" name="preu"/>
+      <xs:element type="xs:string" name="stock"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
